@@ -1,11 +1,11 @@
 FROM node:16.3.0-alpine
 
-COPY . /src
+WORKDIR /usr/src/app
 
-WORKDIR /src
+COPY . .
 
 RUN npm install
 
 EXPOSE 3400
 
-CMD [ "node index.js" ]
+CMD [ "node", "index.js" ]
