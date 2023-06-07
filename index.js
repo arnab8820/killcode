@@ -8,6 +8,10 @@ const PORT = 3400;
 app.use(express.urlencoded({extended: true}));
 app.use(express.json())
 
+app.use(cors({
+    origin: "*",
+}));
+
 app.get("/status", (req, res)=>{
     try{
         if(fs.existsSync("./killdata.txt")){
@@ -47,8 +51,6 @@ app.post("/set", (req, res)=>{
         })
     }
 })
-
-app.use(cors());
 
 app.listen(PORT, ()=>{
     console.log("Server started");
